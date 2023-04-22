@@ -1,0 +1,44 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    audio_addict (0.4.6)
+      colsole (>= 0.8.1, < 2)
+      httparty (~> 0.21)
+      lightly (~> 0.3)
+      mister_bin (~> 0.7)
+      requires (~> 1.0)
+      tty-prompt (~> 0.19)
+    colsole (1.0.0)
+    docopt_ng (0.7.1)
+    httparty (0.21.0)
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
+    lightly (0.3.3)
+    mini_mime (1.1.2)
+    mister_bin (0.7.6)
+      colsole (>= 0.8.1, < 2)
+      docopt_ng (~> 0.7, >= 0.7.1)
+    multi_xml (0.6.0)
+    pastel (0.8.0)
+      tty-color (~> 0.5)
+    requires (1.0.1)
+    tty-color (0.6.0)
+    tty-cursor (0.7.1)
+    tty-prompt (0.23.1)
+      pastel (~> 0.8)
+      tty-reader (~> 0.8)
+    tty-reader (0.9.0)
+      tty-cursor (~> 0.7)
+      tty-screen (~> 0.8)
+      wisper (~> 2.0)
+    tty-screen (0.8.1)
+    wisper (2.0.1)
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  audio_addict
+
+BUNDLED WITH
+   2.4.1

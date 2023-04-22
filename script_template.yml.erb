@@ -1,0 +1,30 @@
+stream_<%= network %>:
+  variables:
+    listen_key: !secret audio_addict_listen_key
+  fields:
+    target:
+      name: Target device
+      description: Media player to stream to
+      required: true
+      selector:
+        entity:
+          integration: sonos
+          #device_class: speaker TODO MAKE GENERIC
+    url:
+      name: Channel
+      description: <%= network_name %> channel to play
+      required: true
+      selector:
+        select:
+          options:<% channels.each do |key, obj| %>
+            - label: <%= obj.name %>
+              value: <%= obj.listen_urls.first %><% end %>
+  sequence:  
+  - service: media_player.play_media
+    data:
+      media_content_id: "aac://{{ url }}?{{ listen_key }}"
+      media_content_type: music
+    target:
+      entity_id: "{{ target }}"
+  mode: single
+  alias: Stream <%= network_name %> to Sonos

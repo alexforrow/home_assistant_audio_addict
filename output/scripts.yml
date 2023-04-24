@@ -1,0 +1,926 @@
+stream_di:
+  variables:
+    listen_key: !secret audio_addict_listen_key
+  fields:
+    target:
+      name: Target device
+      description: Media player to stream to
+      required: true
+      selector:
+        entity:
+          integration: sonos
+          #device_class: speaker TODO MAKE GENERIC
+    url:
+      name: Channel
+      description: Digitally Imported channel to play
+      required: true
+      selector:
+        select:
+          options:
+            - label: 00s Club Hits
+              value: http://prem2.di.fm:80/00sclubhits
+            - label: Ambient
+              value: http://prem2.di.fm:80/ambient
+            - label: Atmospheric Breaks
+              value: http://prem2.di.fm:80/atmosphericbreaks
+            - label: Bass & Jackin' House
+              value: http://prem2.di.fm:80/bassnjackinhouse
+            - label: Bassline
+              value: http://prem2.di.fm:80/bassline
+            - label: Big Beat
+              value: http://prem2.di.fm:80/bigbeat
+            - label: Big Room House
+              value: http://prem2.di.fm:80/bigroomhouse
+            - label: Breaks
+              value: http://prem2.di.fm:80/breaks
+            - label: Chill & Tropical House
+              value: http://prem2.di.fm:80/chillntropicalhouse
+            - label: Chill EDM
+              value: http://prem2.di.fm:80/chilledm
+            - label: ChillHop
+              value: http://prem2.di.fm:80/chillhop
+            - label: Chillout
+              value: http://prem2.di.fm:80/chillout
+            - label: Chillout Dreams
+              value: http://prem2.di.fm:80/chilloutdreams
+            - label: Chillstep
+              value: http://prem2.di.fm:80/chillstep
+            - label: Classic EuroDance
+              value: http://prem2.di.fm:80/classiceurodance
+            - label: Classic EuroDisco
+              value: http://prem2.di.fm:80/classiceurodisco
+            - label: Classic Trance
+              value: http://prem2.di.fm:80/classictrance
+            - label: Classic Vocal Trance
+              value: http://prem2.di.fm:80/classicvocaltrance
+            - label: Club Dubstep
+              value: http://prem2.di.fm:80/clubdubstep
+            - label: Club Hits (Slavic)
+              value: http://prem2.di.fm:80/russianclubhits
+            - label: Club Sounds
+              value: http://prem2.di.fm:80/club
+            - label: DJ Mixes
+              value: http://prem2.di.fm:80/djmixes
+            - label: Dark DnB
+              value: http://prem2.di.fm:80/darkdnb
+            - label: Dark PsyTrance
+              value: http://prem2.di.fm:80/darkpsytrance
+            - label: Deep House
+              value: http://prem2.di.fm:80/deephouse
+            - label: Deep Nu-Disco
+              value: http://prem2.di.fm:80/deepnudisco
+            - label: Deep Organic House
+              value: http://prem2.di.fm:80/deeporganichouse
+            - label: Deep Progressive House
+              value: http://prem2.di.fm:80/deepprogressivehouse
+            - label: Deep Progressive Trance
+              value: http://prem2.di.fm:80/deepprogressivetrance
+            - label: Deep Tech
+              value: http://prem2.di.fm:80/deeptech
+            - label: Detroit House & Techno
+              value: http://prem2.di.fm:80/detroithousentechno
+            - label: Disco House
+              value: http://prem2.di.fm:80/discohouse
+            - label: Downtempo Lounge
+              value: http://prem2.di.fm:80/downtempolounge
+            - label: Drum and Bass
+              value: http://prem2.di.fm:80/drumandbass
+            - label: Drumstep
+              value: http://prem2.di.fm:80/drumstep
+            - label: Dub
+              value: http://prem2.di.fm:80/dub
+            - label: Dub Techno
+              value: http://prem2.di.fm:80/dubtechno
+            - label: Dubstep
+              value: http://prem2.di.fm:80/dubstep
+            - label: EDM Festival
+              value: http://prem2.di.fm:80/mainstage
+            - label: EDM Hits
+              value: http://prem2.di.fm:80/edm
+            - label: Electro House
+              value: http://prem2.di.fm:80/electrohouse
+            - label: Electro Swing
+              value: http://prem2.di.fm:80/electroswing
+            - label: Electronic Pioneers
+              value: http://prem2.di.fm:80/electronicpioneers
+            - label: Electropop
+              value: http://prem2.di.fm:80/electropop
+            - label: Epic Trance
+              value: http://prem2.di.fm:80/epictrance
+            - label: EuroDance
+              value: http://prem2.di.fm:80/eurodance
+            - label: Funky House
+              value: http://prem2.di.fm:80/funkyhouse
+            - label: Future Bass
+              value: http://prem2.di.fm:80/futurebass
+            - label: Future Garage
+              value: http://prem2.di.fm:80/futuregarage
+            - label: Future Synthpop
+              value: http://prem2.di.fm:80/futuresynthpop
+            - label: Gabber
+              value: http://prem2.di.fm:80/gabber
+            - label: Glitch Hop
+              value: http://prem2.di.fm:80/glitchhop
+            - label: Goa-Psy Trance
+              value: http://prem2.di.fm:80/goapsy
+            - label: Hands Up
+              value: http://prem2.di.fm:80/handsup
+            - label: Hard Dance
+              value: http://prem2.di.fm:80/harddance
+            - label: Hard Techno
+              value: http://prem2.di.fm:80/hardtechno
+            - label: Hardcore
+              value: http://prem2.di.fm:80/hardcore
+            - label: Hardstyle
+              value: http://prem2.di.fm:80/hardstyle
+            - label: House
+              value: http://prem2.di.fm:80/house
+            - label: Indie Beats
+              value: http://prem2.di.fm:80/indiebeats
+            - label: Indie Dance
+              value: http://prem2.di.fm:80/indiedance
+            - label: Jazz House
+              value: http://prem2.di.fm:80/jazzhouse
+            - label: Jungle
+              value: http://prem2.di.fm:80/jungle
+            - label: Latin House
+              value: http://prem2.di.fm:80/latinhouse
+            - label: Liquid DnB
+              value: http://prem2.di.fm:80/liquiddnb
+            - label: Liquid Dubstep
+              value: http://prem2.di.fm:80/liquiddubstep
+            - label: Liquid Trap
+              value: http://prem2.di.fm:80/liquidtrap
+            - label: LoFi Hip-Hop
+              value: http://prem2.di.fm:80/lofihiphop
+            - label: LoFi Lounge & Chill
+              value: http://prem2.di.fm:80/lofiloungenchill
+            - label: Lounge
+              value: http://prem2.di.fm:80/lounge
+            - label: Melodic Progressive
+              value: http://prem2.di.fm:80/melodicprogressive
+            - label: Minimal
+              value: http://prem2.di.fm:80/minimal
+            - label: Nightcore
+              value: http://prem2.di.fm:80/nightcore
+            - label: Nu Disco
+              value: http://prem2.di.fm:80/nudisco
+            - label: Oldschool Acid
+              value: http://prem2.di.fm:80/oldschoolacid
+            - label: Oldschool House
+              value: http://prem2.di.fm:80/oldschoolhouse
+            - label: Oldschool Rave
+              value: http://prem2.di.fm:80/oldschoolrave
+            - label: Oldschool Techno & Trance 
+              value: http://prem2.di.fm:80/classicelectronica
+            - label: Progressive
+              value: http://prem2.di.fm:80/progressive
+            - label: Progressive Psy
+              value: http://prem2.di.fm:80/progressivepsy
+            - label: PsyChill
+              value: http://prem2.di.fm:80/psychill
+            - label: PsyDub
+              value: http://prem2.di.fm:80/psydub
+            - label: Psybient
+              value: http://prem2.di.fm:80/psybient
+            - label: Slap House
+              value: http://prem2.di.fm:80/slaphouse
+            - label: Soulful House
+              value: http://prem2.di.fm:80/soulfulhouse
+            - label: Space Dreams
+              value: http://prem2.di.fm:80/spacemusic
+            - label: Summer Chill House
+              value: http://prem2.di.fm:80/summerchillhouse
+            - label: Synthwave
+              value: http://prem2.di.fm:80/synthwave
+            - label: Tech House
+              value: http://prem2.di.fm:80/techhouse
+            - label: Techno
+              value: http://prem2.di.fm:80/techno
+            - label: Trance
+              value: http://prem2.di.fm:80/trance
+            - label: Trap
+              value: http://prem2.di.fm:80/trap
+            - label: Tribal House
+              value: http://prem2.di.fm:80/tribalhouse
+            - label: UMF Radio
+              value: http://prem2.di.fm:80/umfradio
+            - label: Underground Techno
+              value: http://prem2.di.fm:80/undergroundtechno
+            - label: Vocal Chillout
+              value: http://prem2.di.fm:80/vocalchillout
+            - label: Vocal House
+              value: http://prem2.di.fm:80/vocalhouse
+            - label: Vocal Lounge
+              value: http://prem2.di.fm:80/vocallounge
+            - label: Vocal Trance
+              value: http://prem2.di.fm:80/vocaltrance
+  sequence:  
+  - service: media_player.play_media
+    data:
+      media_content_id: "aac://{{ url }}?{{ listen_key }}"
+      media_content_type: music
+    target:
+      entity_id: "{{ target }}"
+  mode: single
+  alias: Stream Digitally Imported to Sonos
+stream_rockradio:
+  variables:
+    listen_key: !secret audio_addict_listen_key
+  fields:
+    target:
+      name: Target device
+      description: Media player to stream to
+      required: true
+      selector:
+        entity:
+          integration: sonos
+          #device_class: speaker TODO MAKE GENERIC
+    url:
+      name: Channel
+      description: Rock Radio channel to play
+      required: true
+      selector:
+        select:
+          options:
+            - label: 00s Rock
+              value: http://prem2.rockradio.com:80/00srock_aac
+            - label: 60s Rock
+              value: http://prem2.rockradio.com:80/60srock_aac
+            - label: 70s Rock
+              value: http://prem2.rockradio.com:80/70srock_aac
+            - label: 80s Alternative
+              value: http://prem2.rockradio.com:80/alternative80s_aac
+            - label: 80s Rock
+              value: http://prem2.rockradio.com:80/80srock_aac
+            - label: 90s Alternative
+              value: http://prem2.rockradio.com:80/alternative90s_aac
+            - label: 90s Rock
+              value: http://prem2.rockradio.com:80/90srock_aac
+            - label: Alternative Rock
+              value: http://prem2.rockradio.com:80/alternativerock_aac
+            - label: Black Metal
+              value: http://prem2.rockradio.com:80/blackmetal_aac
+            - label: Blues Rock
+              value: http://prem2.rockradio.com:80/bluesrock_aac
+            - label: Classic Folk Rock
+              value: http://prem2.rockradio.com:80/classicfolkrock_aac
+            - label: Classic Hard Rock
+              value: http://prem2.rockradio.com:80/classichardrock_aac
+            - label: Classic Metal
+              value: http://prem2.rockradio.com:80/classicmetal_aac
+            - label: Classic Rock
+              value: http://prem2.rockradio.com:80/classicrock_aac
+            - label: Death Metal
+              value: http://prem2.rockradio.com:80/deathmetal_aac
+            - label: Grunge
+              value: http://prem2.rockradio.com:80/grunge_aac
+            - label: Hair Bands
+              value: http://prem2.rockradio.com:80/hairbands_aac
+            - label: Hard Rock
+              value: http://prem2.rockradio.com:80/hardrock_aac
+            - label: Heavy Metal
+              value: http://prem2.rockradio.com:80/heavymetal_aac
+            - label: Indie Rock
+              value: http://prem2.rockradio.com:80/indierock_aac
+            - label: Industrial
+              value: http://prem2.rockradio.com:80/industrial_aac
+            - label: Melodic Death Metal
+              value: http://prem2.rockradio.com:80/melodicdeathmetal_aac
+            - label: Metal
+              value: http://prem2.rockradio.com:80/metal_aac
+            - label: Metalcore
+              value: http://prem2.rockradio.com:80/metalcore_aac
+            - label: Modern Folk Rock
+              value: http://prem2.rockradio.com:80/modernfolkrock_aac
+            - label: Modern Rock
+              value: http://prem2.rockradio.com:80/modernrock_aac
+            - label: Nu Metal
+              value: http://prem2.rockradio.com:80/numetal_aac
+            - label: Pop Rock
+              value: http://prem2.rockradio.com:80/poprock_aac
+            - label: Power Metal
+              value: http://prem2.rockradio.com:80/powermetal_aac
+            - label: Progressive Rock
+              value: http://prem2.rockradio.com:80/progressiverock_aac
+            - label: Punk Rock
+              value: http://prem2.rockradio.com:80/punkrock_aac
+            - label: Rock Ballads
+              value: http://prem2.rockradio.com:80/rockballads_aac
+            - label: Screamo-Emo
+              value: http://prem2.rockradio.com:80/screamoemo_aac
+            - label: Soft Rock
+              value: http://prem2.rockradio.com:80/softrock_aac
+            - label: Symphonic Metal
+              value: http://prem2.rockradio.com:80/symphonicmetal_aac
+            - label: Thrash Metal
+              value: http://prem2.rockradio.com:80/thrashmetal_aac
+            - label: Yacht Rock
+              value: http://prem2.rockradio.com:80/yachtrock_aac
+  sequence:  
+  - service: media_player.play_media
+    data:
+      media_content_id: "aac://{{ url }}?{{ listen_key }}"
+      media_content_type: music
+    target:
+      entity_id: "{{ target }}"
+  mode: single
+  alias: Stream Rock Radio to Sonos
+stream_radiotunes:
+  variables:
+    listen_key: !secret audio_addict_listen_key
+  fields:
+    target:
+      name: Target device
+      description: Media player to stream to
+      required: true
+      selector:
+        entity:
+          integration: sonos
+          #device_class: speaker TODO MAKE GENERIC
+    url:
+      name: Channel
+      description: Radio Tunes channel to play
+      required: true
+      selector:
+        select:
+          options:
+            - label: 00s Country
+              value: http://prem2.radiotunes.com:80/00scountry
+            - label: 00s Dance
+              value: http://prem2.radiotunes.com:80/00sdance
+            - label: 00s Hits
+              value: http://prem2.radiotunes.com:80/hit00s
+            - label: 00s R&B
+              value: http://prem2.radiotunes.com:80/00srnb
+            - label: 00s Rock
+              value: http://prem2.radiotunes.com:80/00srock
+            - label: 60s Hits
+              value: http://prem2.radiotunes.com:80/hit60s
+            - label: 60s Rock
+              value: http://prem2.radiotunes.com:80/60srock
+            - label: 70s Hits
+              value: http://prem2.radiotunes.com:80/hit70s
+            - label: 70s Rock
+              value: http://prem2.radiotunes.com:80/70srock
+            - label: 80s Alt & New Wave
+              value: http://prem2.radiotunes.com:80/80saltnnewwave
+            - label: 80s Dance
+              value: http://prem2.radiotunes.com:80/80sdance
+            - label: 80s Hits
+              value: http://prem2.radiotunes.com:80/the80s
+            - label: 80s Rock Hits
+              value: http://prem2.radiotunes.com:80/80srock
+            - label: 90s Country
+              value: http://prem2.radiotunes.com:80/90scountry
+            - label: 90s Dance
+              value: http://prem2.radiotunes.com:80/90sdance
+            - label: 90s Hits
+              value: http://prem2.radiotunes.com:80/hit90s
+            - label: 90s R&B
+              value: http://prem2.radiotunes.com:80/90srnb
+            - label: 90s Rock
+              value: http://prem2.radiotunes.com:80/90srock
+            - label: Alternative Rock
+              value: http://prem2.radiotunes.com:80/altrock
+            - label: Ambient
+              value: http://prem2.radiotunes.com:80/rtambient
+            - label: American Songbook
+              value: http://prem2.radiotunes.com:80/americansongbook
+            - label: Baroque Period
+              value: http://prem2.radiotunes.com:80/baroque
+            - label: Bebop Jazz
+              value: http://prem2.radiotunes.com:80/bebop
+            - label: Blues Rock
+              value: http://prem2.radiotunes.com:80/bluesrock
+            - label: Bossa Nova
+              value: http://prem2.radiotunes.com:80/bossanova
+            - label: Café de Paris
+              value: http://prem2.radiotunes.com:80/cafedeparis
+            - label: Chill & Tropical House
+              value: http://prem2.radiotunes.com:80/rtchillntropicalhouse
+            - label: Chillout
+              value: http://prem2.radiotunes.com:80/rtchillout
+            - label: Classic Christmas
+              value: http://prem2.radiotunes.com:80/christmas
+            - label: Classic Hip-Hop
+              value: http://prem2.radiotunes.com:80/classicrap
+            - label: Classic Motown
+              value: http://prem2.radiotunes.com:80/classicmotown
+            - label: Classic Rock
+              value: http://prem2.radiotunes.com:80/classicrock
+            - label: Classical Guitar
+              value: http://prem2.radiotunes.com:80/guitar
+            - label: Classical Period
+              value: http://prem2.radiotunes.com:80/classicalperiod
+            - label: Classical Piano Trios
+              value: http://prem2.radiotunes.com:80/classicalpianotrios
+            - label: Club Bollywood
+              value: http://prem2.radiotunes.com:80/clubbollywood
+            - label: Coffee Jazz
+              value: http://prem2.radiotunes.com:80/coffeejazz
+            - label: Contemporary Christian
+              value: http://prem2.radiotunes.com:80/christian
+            - label: Country
+              value: http://prem2.radiotunes.com:80/country
+            - label: Cuban Lounge
+              value: http://prem2.radiotunes.com:80/cubanlounge
+            - label: DaTempo Lounge
+              value: http://prem2.radiotunes.com:80/datempolounge
+            - label: Dance Hits
+              value: http://prem2.radiotunes.com:80/dancehits
+            - label: Dave Koz & Friends
+              value: http://prem2.radiotunes.com:80/davekoz
+            - label: Disco Party
+              value: http://prem2.radiotunes.com:80/discoparty
+            - label: Downtempo Lounge
+              value: http://prem2.radiotunes.com:80/rtdowntempolounge
+            - label: Dreamscapes
+              value: http://prem2.radiotunes.com:80/dreamscapes
+            - label: EDM Fest
+              value: http://prem2.radiotunes.com:80/edmfest
+            - label: Easy Listening
+              value: http://prem2.radiotunes.com:80/easylistening
+            - label: Epic Music
+              value: http://prem2.di.fm:80/epicmusic
+            - label: EuroDance
+              value: http://prem2.radiotunes.com:80/rteurodance
+            - label: Halloween Channel
+              value: http://prem2.radiotunes.com:80/halloween
+            - label: Hard Rock
+              value: http://prem2.radiotunes.com:80/hardrock
+            - label: Holiday Smooth Jazz
+              value: http://prem2.radiotunes.com:80/holidaysmoothjazz
+            - label: Indie Dance
+              value: http://prem2.radiotunes.com:80/rtindiedance
+            - label: Indie Rock
+              value: http://prem2.radiotunes.com:80/indierock
+            - label: Jazz Classics
+              value: http://prem2.radiotunes.com:80/jazzclassics
+            - label: Jpop
+              value: http://prem2.radiotunes.com:80/jpop
+            - label: Latin Pop Hits
+              value: http://prem2.radiotunes.com:80/latinpophits
+            - label: Lounge
+              value: http://prem2.radiotunes.com:80/rtlounge
+            - label: Love Music
+              value: http://prem2.radiotunes.com:80/lovemusic
+            - label: Meditation
+              value: http://prem2.radiotunes.com:80/meditation
+            - label: Mellow Jazz
+              value: http://prem2.radiotunes.com:80/mellowjazz
+            - label: Mellow Smooth Jazz
+              value: http://prem2.radiotunes.com:80/mellowsmoothjazz
+            - label: Metal
+              value: http://prem2.radiotunes.com:80/metal
+            - label: Modern Blues
+              value: http://prem2.radiotunes.com:80/modernblues
+            - label: Modern Rock
+              value: http://prem2.radiotunes.com:80/modernrock
+            - label: Mostly Classical
+              value: http://prem2.radiotunes.com:80/classical
+            - label: Movie Soundtracks
+              value: http://prem2.radiotunes.com:80/soundtracks
+            - label: Mozart
+              value: http://prem2.radiotunes.com:80/mozart
+            - label: Nature
+              value: http://prem2.radiotunes.com:80/nature
+            - label: New Age
+              value: http://prem2.radiotunes.com:80/newage
+            - label: Old School Funk & Soul
+              value: http://prem2.radiotunes.com:80/oldschoolfunknsoul
+            - label: Oldies
+              value: http://prem2.radiotunes.com:80/oldies
+            - label: Piano Jazz
+              value: http://prem2.radiotunes.com:80/pianojazz
+            - label: Pop Christmas
+              value: http://prem2.radiotunes.com:80/popchristmas
+            - label: Pop Rock
+              value: http://prem2.radiotunes.com:80/poprock
+            - label: Reggaeton
+              value: http://prem2.radiotunes.com:80/reggaeton
+            - label: Relaxation
+              value: http://prem2.radiotunes.com:80/relaxation
+            - label: Relaxing Ambient Piano
+              value: http://prem2.radiotunes.com:80/relaxingambientpiano
+            - label: Romantic Period
+              value: http://prem2.radiotunes.com:80/romantic
+            - label: Romantica
+              value: http://prem2.radiotunes.com:80/romantica
+            - label: Romántica Latina
+              value: http://prem2.radiotunes.com:80/romanticalatina
+            - label: Roots Reggae
+              value: http://prem2.radiotunes.com:80/rootsreggae
+            - label: Salsa
+              value: http://prem2.radiotunes.com:80/salsa
+            - label: Sleep Relaxation
+              value: http://prem2.radiotunes.com:80/sleeprelaxation
+            - label: Slow R&B
+              value: http://prem2.radiotunes.com:80/slowjams
+            - label: Smooth Beats
+              value: http://prem2.radiotunes.com:80/smoothbeats
+            - label: Smooth Bossa Nova
+              value: http://prem2.radiotunes.com:80/smoothbossanova
+            - label: Smooth Jazz
+              value: http://prem2.radiotunes.com:80/smoothjazz
+            - label: Smooth Jazz 24'7
+              value: http://prem2.radiotunes.com:80/smoothjazz247
+            - label: Smooth Lounge
+              value: http://prem2.radiotunes.com:80/smoothlounge
+            - label: Soft Rock
+              value: http://prem2.radiotunes.com:80/softrock
+            - label: Solo Piano
+              value: http://prem2.radiotunes.com:80/solopiano
+            - label: Top Hits
+              value: http://prem2.radiotunes.com:80/tophits
+            - label: Uptempo Smooth Jazz
+              value: http://prem2.radiotunes.com:80/uptemposmoothjazz
+            - label: Urban Hits
+              value: http://prem2.radiotunes.com:80/urbanjamz
+            - label: Urban Pop Hits
+              value: http://prem2.radiotunes.com:80/urbanpophits
+            - label: Vocal Chillout
+              value: http://prem2.radiotunes.com:80/rtvocalchillout
+            - label: Vocal Lounge
+              value: http://prem2.radiotunes.com:80/rtvocallounge
+            - label: Vocal New Age
+              value: http://prem2.radiotunes.com:80/vocalnewage
+            - label: Vocal Smooth Jazz
+              value: http://prem2.radiotunes.com:80/vocalsmoothjazz
+            - label: World
+              value: http://prem2.radiotunes.com:80/world
+  sequence:  
+  - service: media_player.play_media
+    data:
+      media_content_id: "aac://{{ url }}?{{ listen_key }}"
+      media_content_type: music
+    target:
+      entity_id: "{{ target }}"
+  mode: single
+  alias: Stream Radio Tunes to Sonos
+stream_jazzradio:
+  variables:
+    listen_key: !secret audio_addict_listen_key
+  fields:
+    target:
+      name: Target device
+      description: Media player to stream to
+      required: true
+      selector:
+        entity:
+          integration: sonos
+          #device_class: speaker TODO MAKE GENERIC
+    url:
+      name: Channel
+      description: Jazz Radio channel to play
+      required: true
+      selector:
+        select:
+          options:
+            - label: Afro Jazz
+              value: http://prem2.jazzradio.com:80/afrojazz_aac
+            - label: Bass Jazz
+              value: http://prem2.jazzradio.com:80/bassjazz_aac
+            - label: Bebop
+              value: http://prem2.jazzradio.com:80/bebop_aac
+            - label: Blues
+              value: http://prem2.jazzradio.com:80/blues_aac
+            - label: Blues Rock
+              value: http://prem2.jazzradio.com:80/bluesrock_aac
+            - label: Bossa Nova
+              value: http://prem2.jazzradio.com:80/bossanova_aac
+            - label: Classic Jazz
+              value: http://prem2.jazzradio.com:80/classicjazz_aac
+            - label: Cocktail Jazz
+              value: http://prem2.jazzradio.com:80/cocktailjazz_aac
+            - label: Coffee Jazz
+              value: http://prem2.jazzradio.com:80/coffeejazz_aac
+            - label: Cool Jazz
+              value: http://prem2.jazzradio.com:80/cooljazz_aac
+            - label: Current Jazz
+              value: http://prem2.jazzradio.com:80/currentjazz_aac
+            - label: Dave Koz & Friends
+              value: http://prem2.jazzradio.com:80/davekoz_aac
+            - label: Fusion Lounge
+              value: http://prem2.jazzradio.com:80/fusionlounge_aac
+            - label: Guitar Jazz
+              value: http://prem2.jazzradio.com:80/guitarjazz_aac
+            - label: Gypsy Jazz
+              value: http://prem2.jazzradio.com:80/gypsyjazz_aac
+            - label: Hard Bop
+              value: http://prem2.jazzradio.com:80/hardbop_aac
+            - label: Holiday Jazz
+              value: http://prem2.jazzradio.com:80/holidayjazz_aac
+            - label: Holiday Smooth Jazz
+              value: http://prem2.jazzradio.com:80/holidaysmoothjazz_aac
+            - label: Jazz Ballads
+              value: http://prem2.jazzradio.com:80/jazzballads_aac
+            - label: Jazz Hop
+              value: http://prem2.jazzradio.com:80/jazzhop_aac
+            - label: Late Night Jazz
+              value: http://prem2.jazzradio.com:80/latenightjazz_aac
+            - label: Latin Jazz
+              value: http://prem2.jazzradio.com:80/latinjazz_aac
+            - label: Love Smooth Jazz
+              value: http://prem2.jazzradio.com:80/lovesmoothjazz_aac
+            - label: Mellow Jazz
+              value: http://prem2.jazzradio.com:80/mellowjazz_aac
+            - label: Mellow Piano Jazz
+              value: http://prem2.jazzradio.com:80/mellowpianojazz_aac
+            - label: Mellow Smooth Jazz
+              value: http://prem2.jazzradio.com:80/mellowsmoothjazz_aac
+            - label: Modern Big Band
+              value: http://prem2.jazzradio.com:80/modernbigband_aac
+            - label: Modern Vocal Jazz
+              value: http://prem2.jazzradio.com:80/vocaljazz_aac
+            - label: Paris Café
+              value: http://prem2.jazzradio.com:80/pariscafe_aac
+            - label: Piano Jazz
+              value: http://prem2.jazzradio.com:80/pianojazz_aac
+            - label: Piano Trios
+              value: http://prem2.jazzradio.com:80/pianotrios_aac
+            - label: Saxophone Jazz
+              value: http://prem2.jazzradio.com:80/saxophonejazz_aac
+            - label: Sinatra Style
+              value: http://prem2.jazzradio.com:80/sinatrastyle_aac
+            - label: Smooth Bossa Nova
+              value: http://prem2.jazzradio.com:80/smoothbossanova_aac
+            - label: Smooth Jazz
+              value: http://prem2.jazzradio.com:80/smoothjazz_aac
+            - label: Smooth Jazz 24'7
+              value: http://prem2.jazzradio.com:80/smoothjazz247_aac
+            - label: Smooth Lounge
+              value: http://prem2.jazzradio.com:80/smoothlounge_aac
+            - label: Smooth Uptempo
+              value: http://prem2.jazzradio.com:80/smoothuptempo_aac
+            - label: Smooth Vocals
+              value: http://prem2.jazzradio.com:80/smoothvocals_aac
+            - label: Straight-Ahead
+              value: http://prem2.jazzradio.com:80/straightahead_aac
+            - label: Swing & Big Band
+              value: http://prem2.jazzradio.com:80/swingnbigband_aac
+            - label: Timeless Classics
+              value: http://prem2.jazzradio.com:80/timelessclassics_aac
+            - label: Trumpet Jazz
+              value: http://prem2.jazzradio.com:80/trumpetjazz_aac
+            - label: Vibraphone Jazz
+              value: http://prem2.jazzradio.com:80/vibraphonejazz_aac
+            - label: Vocal Legends
+              value: http://prem2.jazzradio.com:80/vocallegends_aac
+  sequence:  
+  - service: media_player.play_media
+    data:
+      media_content_id: "aac://{{ url }}?{{ listen_key }}"
+      media_content_type: music
+    target:
+      entity_id: "{{ target }}"
+  mode: single
+  alias: Stream Jazz Radio to Sonos
+stream_classicalradio:
+  variables:
+    listen_key: !secret audio_addict_listen_key
+  fields:
+    target:
+      name: Target device
+      description: Media player to stream to
+      required: true
+      selector:
+        entity:
+          integration: sonos
+          #device_class: speaker TODO MAKE GENERIC
+    url:
+      name: Channel
+      description: Classical Radio channel to play
+      required: true
+      selector:
+        select:
+          options:
+            - label: 20th Century
+              value: http://prem2.classicalradio.com:80/20thcentury_aac
+            - label: 21st Century
+              value: http://prem2.classicalradio.com:80/21stcentury_aac
+            - label: Adagios
+              value: http://prem2.classicalradio.com:80/adagios_aac
+            - label: Bach
+              value: http://prem2.classicalradio.com:80/bach_aac
+            - label: Ballets
+              value: http://prem2.classicalradio.com:80/ballets_aac
+            - label: Baroque Period
+              value: http://prem2.classicalradio.com:80/baroqueperiod_aac
+            - label: Beethoven
+              value: http://prem2.classicalradio.com:80/beethoven_aac
+            - label: Brahms
+              value: http://prem2.classicalradio.com:80/brahms_aac
+            - label: Cello Works
+              value: http://prem2.classicalradio.com:80/celloworks_aac
+            - label: Chamber Works
+              value: http://prem2.classicalradio.com:80/chamberworks_aac
+            - label: Chopin
+              value: http://prem2.classicalradio.com:80/chopin_aac
+            - label: Choral Works
+              value: http://prem2.classicalradio.com:80/choralworks_aac
+            - label: Classical Christmas
+              value: http://prem2.classicalradio.com:80/classicalchristmas_aac
+            - label: Classical Guitar Works
+              value: http://prem2.classicalradio.com:80/classicalguitarworks_aac
+            - label: Classical Period
+              value: http://prem2.classicalradio.com:80/classicalperiod_aac
+            - label: Classical Piano Trios
+              value: http://prem2.classicalradio.com:80/classicalpianotrios_aac
+            - label: Classical Relaxation
+              value: http://prem2.classicalradio.com:80/classicalrelaxation_aac
+            - label: Concertos
+              value: http://prem2.classicalradio.com:80/concertos_aac
+            - label: Contemporary Period
+              value: http://prem2.classicalradio.com:80/contemporaryperiod_aac
+            - label: Debussy
+              value: http://prem2.classicalradio.com:80/debussy_aac
+            - label: Easy Classical
+              value: http://prem2.classicalradio.com:80/easyclassical_aac
+            - label: Flute Works
+              value: http://prem2.classicalradio.com:80/fluteworks_aac
+            - label: Gregorian Chant
+              value: http://prem2.classicalradio.com:80/gregorianchant_aac
+            - label: Grieg
+              value: http://prem2.classicalradio.com:80/grieg_aac
+            - label: Handel
+              value: http://prem2.classicalradio.com:80/handel_aac
+            - label: Harpsichord Works
+              value: http://prem2.classicalradio.com:80/harpsichordworks_aac
+            - label: Haydn
+              value: http://prem2.classicalradio.com:80/haydn_aac
+            - label: Liszt
+              value: http://prem2.classicalradio.com:80/liszt_aac
+            - label: Medieval Period
+              value: http://prem2.classicalradio.com:80/medievalperiod_aac
+            - label: Mozart
+              value: http://prem2.classicalradio.com:80/mozart_aac
+            - label: Nocturnes
+              value: http://prem2.classicalradio.com:80/nocturnes_aac
+            - label: Opera Highlights
+              value: http://prem2.classicalradio.com:80/operahighlights_aac
+            - label: Operas
+              value: http://prem2.classicalradio.com:80/operas_aac
+            - label: Orchestral Works
+              value: http://prem2.classicalradio.com:80/orchestralworks_aac
+            - label: Organ Works
+              value: http://prem2.classicalradio.com:80/organworks_aac
+            - label: Overtures
+              value: http://prem2.classicalradio.com:80/overtures_aac
+            - label: Piano Works
+              value: http://prem2.classicalradio.com:80/pianoworks_aac
+            - label: Relaxing Flute
+              value: http://prem2.classicalradio.com:80/relaxingflute_aac
+            - label: Relaxing Piano
+              value: http://prem2.classicalradio.com:80/relaxingpiano_aac
+            - label: Renaissance Period
+              value: http://prem2.classicalradio.com:80/renaissanceperiod_aac
+            - label: Romantic Period
+              value: http://prem2.classicalradio.com:80/romanticperiod_aac
+            - label: Sacred Works
+              value: http://prem2.classicalradio.com:80/sacredworks_aac
+            - label: Schubert
+              value: http://prem2.classicalradio.com:80/schubert_aac
+            - label: Shostakovich
+              value: http://prem2.classicalradio.com:80/shostakovich_aac
+            - label: Solo Instruments
+              value: http://prem2.classicalradio.com:80/soloinstruments_aac
+            - label: Solo Piano
+              value: http://prem2.classicalradio.com:80/solopiano_aac
+            - label: Sonatas
+              value: http://prem2.classicalradio.com:80/sonatas_aac
+            - label: Songs & Lieder
+              value: http://prem4.classicalradio.com:80/songsnlieders_aac
+            - label: String Works
+              value: http://prem2.classicalradio.com:80/stringworks_aac
+            - label: Symphonies
+              value: http://prem2.classicalradio.com:80/symphonies_aac
+            - label: Tchaikovsky
+              value: http://prem2.classicalradio.com:80/tchaikovsky_aac
+            - label: Telemann
+              value: http://prem2.classicalradio.com:80/telemann_aac
+            - label: Trumpet Works
+              value: http://prem2.classicalradio.com:80/trumpetworks_aac
+            - label: Violin Works
+              value: http://prem2.classicalradio.com:80/violinworks_aac
+            - label: Vivaldi
+              value: http://prem2.classicalradio.com:80/vivaldi_aac
+            - label: Waltzes, Polkas & Marches
+              value: http://prem2.classicalradio.com:80/waltzespolkasnmarches_aac
+            - label: Wind Works
+              value: http://prem2.classicalradio.com:80/windworks_aac
+  sequence:  
+  - service: media_player.play_media
+    data:
+      media_content_id: "aac://{{ url }}?{{ listen_key }}"
+      media_content_type: music
+    target:
+      entity_id: "{{ target }}"
+  mode: single
+  alias: Stream Classical Radio to Sonos
+stream_zenradio:
+  variables:
+    listen_key: !secret audio_addict_listen_key
+  fields:
+    target:
+      name: Target device
+      description: Media player to stream to
+      required: true
+      selector:
+        entity:
+          integration: sonos
+          #device_class: speaker TODO MAKE GENERIC
+    url:
+      name: Channel
+      description: Zen Radio channel to play
+      required: true
+      selector:
+        select:
+          options:
+            - label: Acoustic Vocal Chillout
+              value: http://prem2.zenradio.com:80/zracousticvocalchillout_aac
+            - label: Ambient
+              value: http://prem2.zenradio.com:80/zrambient_aac
+            - label: Atmospheric Dreams
+              value: http://prem2.zenradio.com:80/zratmosphericdreams_aac
+            - label: Baby Sleep
+              value: http://prem2.zenradio.com:80/zrbabysleep_aac
+            - label: Chillout
+              value: http://prem2.zenradio.com:80/zrchillout_aac
+            - label: Chillout Dreams
+              value: http://prem2.zenradio.com:80/zrchilloutdreams_aac
+            - label: Deep Concentration
+              value: http://prem2.zenradio.com:80/zrdeepconcentration_aac
+            - label: Deep Focus
+              value: http://prem2.zenradio.com:80/zrdeepfocus_aac
+            - label: Downtempo Lounge
+              value: http://prem2.zenradio.com:80/zrdowntempolounge_aac
+            - label: East Asian Meditation
+              value: http://prem2.zenradio.com:80/zreastasianmeditation_aac
+            - label: Love & Relaxation
+              value: http://prem2.zenradio.com:80/zrlovenrelaxation_aac
+            - label: Meditation
+              value: http://prem2.zenradio.com:80/zrmeditation_aac
+            - label: Native American Flute
+              value: http://prem2.zenradio.com:80/zrnativeamericanflute_aac
+            - label: Nature
+              value: http://prem2.zenradio.com:80/zrnature_aac
+            - label: New Age
+              value: http://prem2.zenradio.com:80/zrnewage_aac
+            - label: Ocean Sounds
+              value: http://prem2.zenradio.com:80/zroceansounds_aac
+            - label: Peaceful Healing
+              value: http://prem2.zenradio.com:80/zrpeacefulhealing_aac
+            - label: Perfect Sunsets
+              value: http://prem2.zenradio.com:80/zrperfectsunsets_aac
+            - label: Pregnancy Relaxation
+              value: http://prem2.zenradio.com:80/zrpregnancyrelaxation_aac
+            - label: Reiki
+              value: http://prem2.zenradio.com:80/zrreiki_aac
+            - label: Relaxation
+              value: http://prem2.zenradio.com:80/zrrelaxation_aac
+            - label: Relaxing Classical
+              value: http://prem2.zenradio.com:80/zrrelaxingclassical_aac
+            - label: Relaxing Flute
+              value: http://prem2.zenradio.com:80/zrrelaxingflute_aac
+            - label: Relaxing Guitar
+              value: http://prem2.zenradio.com:80/zrrelaxingguitar_aac
+            - label: Relaxing Piano
+              value: http://prem2.zenradio.com:80/zrrelaxingpiano_aac
+            - label: Relaxing Spa & Massage
+              value: http://prem2.zenradio.com:80/zrrelaxingspanmassage_aac
+            - label: Shamanic Music
+              value: http://prem2.zenradio.com:80/zrshamanicmusic_aac
+            - label: Sleep Relaxation
+              value: http://prem2.zenradio.com:80/zrsleeprelaxation_aac
+            - label: Sounds of Rain
+              value: http://prem2.zenradio.com:80/zrsoundsofrain_aac
+            - label: Space Dreams
+              value: http://prem2.zenradio.com:80/zrspacedreams_aac
+            - label: Stress Relief
+              value: http://prem2.zenradio.com:80/zrstressrelief_aac
+            - label: Study Music
+              value: http://prem2.zenradio.com:80/zrstudymusic_aac
+            - label: Tibetan Music
+              value: http://prem2.zenradio.com:80/zrtibetanmusic_aac
+            - label: Tibetan Singing Bowls
+              value: http://prem2.zenradio.com:80/zrtibetansingingbowls_aac
+            - label: Tranquility & Healing
+              value: http://prem2.zenradio.com:80/zrtranquilitynhealing_aac
+            - label: Vocal Chillout
+              value: http://prem2.zenradio.com:80/zrvocalchillout_aac
+            - label: Vocal New Age
+              value: http://prem2.zenradio.com:80/zrvocalnewage_aac
+            - label: Yoga
+              value: http://prem2.zenradio.com:80/zryoga_aac
+            - label: Zen
+              value: http://prem2.zenradio.com:80/zrzen_aac
+  sequence:  
+  - service: media_player.play_media
+    data:
+      media_content_id: "aac://{{ url }}?{{ listen_key }}"
+      media_content_type: music
+    target:
+      entity_id: "{{ target }}"
+  mode: single
+  alias: Stream Zen Radio to Sonos

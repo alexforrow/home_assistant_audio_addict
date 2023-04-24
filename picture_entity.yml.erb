@@ -1,0 +1,8 @@
+- type: picture
+  image: <%= artwork %>
+  tap_action:
+    action: call-service
+    service: script.stream_di
+    data:
+      target: <%= target %>
+      url: <%= url %>

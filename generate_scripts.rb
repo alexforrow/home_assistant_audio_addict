@@ -10,7 +10,6 @@ AudioAddict::Radio.networks.each do |network, _name|
   puts template.result_with_hash(
     network: network,
     network_name: radio.name,
-    channels: radio.channels,
-    host: radio.url_template.gsub(/\/[^\/]+$/, '')
+    channels: radio.channels
     )
 end

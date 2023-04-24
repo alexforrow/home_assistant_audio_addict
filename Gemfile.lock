@@ -1,5 +1,6 @@
-GEM
-  remote: https://rubygems.org/
+GIT
+  remote: https://github.com/alexforrow/audio_addict
+  revision: a814a8781b9f4561a23b64326390aa71ef0746ce
   specs:
     audio_addict (0.4.6)
       colsole (>= 0.8.1, < 2)
@@ -8,6 +9,10 @@ GEM
       mister_bin (~> 0.7)
       requires (~> 1.0)
       tty-prompt (~> 0.19)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
     colsole (1.0.0)
     docopt_ng (0.7.1)
     httparty (0.21.0)
@@ -38,7 +43,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  audio_addict
+  audio_addict!
 
 BUNDLED WITH
    2.4.1

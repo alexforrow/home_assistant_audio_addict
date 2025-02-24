@@ -3,8 +3,9 @@
 Helpers for using Audio Addict radio in Home Assistant.
 
 Generate YAML
-* Scripts so you can start streams through a service
-* Dashboard configuration for pretty buttons to start streams
+* Scripts so you can start streams through an action easily
+* Template macros so you can get URL for artwork (for use in anything than can template, like Generic Camera, Markdown card or Mushroom template card)
+* Dashboard configuration for pretty buttons to start streams. Can be used in Grid card
 
 # Usage
 

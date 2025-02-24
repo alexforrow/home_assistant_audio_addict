@@ -1,0 +1,96 @@
+- type: picture
+  image: https://cdn-images.audioaddict.com/3/3/a/8/a/4/33a8a4d7cea09b070a87709b04d212fd.jpg?size=224x224
+  tap_action:
+    action: call-service
+    service: script.stream_di
+    data:
+      target: media_player.study
+      url: http://prem2.zenradio.com:80/zrperfectsunsets_aac
+- type: picture
+  image: https://cdn-images.audioaddict.com/b/b/1/0/3/a/bb103ac2b80f76c178d042aa30b16170.png?size=224x224
+  tap_action:
+    action: call-service
+    service: script.stream_di
+    data:
+      target: media_player.study
+      url: http://prem2.di.fm:80/minimal
+- type: picture
+  image: https://cdn-images.audioaddict.com/1/8/2/3/5/f/18235f1bb98bc10b2827fd56a41dee1c.jpg?size=224x224
+  tap_action:
+    action: call-service
+    service: script.stream_di
+    data:
+      target: media_player.study
+      url: http://prem2.jazzradio.com:80/modernbigband_aac
+- type: picture
+  image: https://cdn-images.audioaddict.com/1/4/c/f/5/f/14cf5fd76755ca92fe17c5233bb001e8.png?size=224x224
+  tap_action:
+    action: call-service
+    service: script.stream_di
+    data:
+      target: media_player.study
+      url: http://prem2.classicalradio.com:80/solopiano_aac
+- type: picture
+  image: https://cdn-images.audioaddict.com/8/e/1/7/8/a/8e178a2e3d96608fb8a3a4810cbe6141.jpg?size=224x224
+  tap_action:
+    action: call-service
+    service: script.stream_di
+    data:
+      target: media_player.study
+      url: http://prem2.jazzradio.com:80/blues_aac
+- type: picture
+  image: https://cdn-images.audioaddict.com/b/1/0/5/6/7/b10567777ad265dcc63816fa32396654.png?size=224x224
+  tap_action:
+    action: call-service
+    service: script.stream_di
+    data:
+      target: media_player.study
+      url: http://prem2.di.fm:80/trance
+- type: picture
+  image: https://cdn-images.audioaddict.com/b/f/9/7/b/7/bf97b7421428f7616ce142e0679aa2f2.png?size=224x224
+  tap_action:
+    action: call-service
+    service: script.stream_di
+    data:
+      target: media_player.study
+      url: http://prem2.classicalradio.com:80/symphonies_aac
+- type: picture
+  image: https://cdn-images.audioaddict.com/1/a/9/d/9/8/1a9d987f6ba78247848df7a09026288d.png?size=224x224
+  tap_action:
+    action: call-service
+    service: script.stream_di
+    data:
+      target: media_player.study
+      url: http://prem2.di.fm:80/chillntropicalhouse
+- type: picture
+  image: https://cdn-images.audioaddict.com/8/3/5/b/0/c/835b0c872ec144acd7bd55ebfc5db2d4.png?size=224x224
+  tap_action:
+    action: call-service
+    service: script.stream_di
+    data:
+      target: media_player.study
+      url: http://prem2.rockradio.com:80/00srock_aac
+- type: picture
+  image: https://cdn-images.audioaddict.com/4/7/c/f/5/6/47cf56bbcc4758c5e3335e43b6864420.png?size=224x224
+  tap_action:
+    action: call-service
+    service: script.stream_di
+    data:
+      target: media_player.study
+      url: http://prem2.rockradio.com:80/softrock_aac
+- type: picture
+  image: https://cdn-images.audioaddict.com/e/b/9/e/3/8/eb9e3899d1c8db4d9b87a3e4276f8b4e.png?size=224x224
+  tap_action:
+    action: call-service
+    service: script.stream_di
+    data:
+      target: media_player.study
+      url: http://prem2.di.fm:80/edm
+- type: picture
+  image: https://cdn-images.audioaddict.com/4/6/8/b/6/4/468b644f4d8d3b3e3da48132f088da25.png?size=224x224
+  tap_action:
+    action: call-service
+    service: script.stream_di
+    data:
+      target: media_player.study
+      url: http://prem2.di.fm:80/lounge

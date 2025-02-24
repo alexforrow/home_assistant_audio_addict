@@ -1,0 +1,38 @@
+{% macro music_artwork_expand(media_player) -%}
+  {% if state_attr(media_player, 'entity_picture') != None -%}
+    {{ state_attr(media_player, 'entity_picture') }}
+  {%- else -%}
+    {# strip aac prefix and auth suffix #}
+    {%- set content_url = (state_attr(media_player, 'media_content_id') | regex_replace('^aac://', '') | regex_replace('\?.*$', '')) -%}
+    {% set content_overrides = {
+    <% channels.each do |key, obj| -%>
+    "<%= key %>": "<%= obj[:artwork] %>",
+    <% end -%>
+    } -%}
+    {% if content_url in content_overrides -%}
+    {{ content_overrides[content_url] }}
+    {%- else -%}
+    /local/difm.png
+    {%- endif -%}
+  {%- endif -%}
+{% endmacro %}
+
+{% macro music_source(media_player, include_network = false) -%}
+  {% if 'spotify:' in state_attr(media_player, 'media_content_id') -%}
+    Spotify
+  {%- else -%}
+    {# strip aac prefix and auth suffix #}
+    {%- set content_url = (state_attr(media_player, 'media_content_id') | regex_replace('^aac://', '') | regex_replace('\?.*$', '')) -%}
+    {% set content_overrides = {
+    <% channels.each do |key, obj| -%>
+    "<%= key %>": ("<%= obj[:network] %> " if include_network else "") + "<%= obj[:name] %>",
+    <% end -%>
+    } -%}
+    {% if content_url in content_overrides -%}
+    {{ content_overrides[content_url] }}
+    {%- else -%}
+    Unknown
+    {%- endif -%}
+  {%- endif -%}
+{% endmacro %}
+

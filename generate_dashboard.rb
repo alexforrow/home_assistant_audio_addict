@@ -21,12 +21,16 @@ def write_channel(network, channel_key)
     )
 end
 
+write_channel(:zenradio, 'perfectsunsets')
 write_channel(:di, 'minimal')
+write_channel(:jazzradio, 'modernbigband')
+write_channel(:classicalradio, 'solopiano')
 write_channel(:jazzradio, 'blues')
 write_channel(:di, 'trance')
 write_channel(:classicalradio, 'symphonies')
 write_channel(:di, 'chillntropicalhouse')
 write_channel(:rockradio, '00srock')
+write_channel(:rockradio, 'softrock')
 write_channel(:di, 'edm')
 write_channel(:di, 'lounge')
 

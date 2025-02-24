@@ -135,6 +135,8 @@ stream_di:
               value: http://prem2.di.fm:80/hardstyle
             - label: House
               value: http://prem2.di.fm:80/house
+            - label: ICONYC Radio
+              value: http://prem2.di.fm:80/iconycradio
             - label: Indie Beats
               value: http://prem2.di.fm:80/indiebeats
             - label: Indie Dance
@@ -445,8 +447,6 @@ stream_radiotunes:
               value: http://prem2.di.fm:80/epicmusic
             - label: EuroDance
               value: http://prem2.radiotunes.com:80/rteurodance
-            - label: Halloween Channel
-              value: http://prem2.radiotunes.com:80/halloween
             - label: Hard Rock
               value: http://prem2.radiotunes.com:80/hardrock
             - label: Holiday Smooth Jazz
@@ -455,10 +455,12 @@ stream_radiotunes:
               value: http://prem2.radiotunes.com:80/rtindiedance
             - label: Indie Rock
               value: http://prem2.radiotunes.com:80/indierock
+            - label: J-pop
+              value: http://prem2.radiotunes.com:80/jpop
             - label: Jazz Classics
               value: http://prem2.radiotunes.com:80/jazzclassics
-            - label: Jpop
-              value: http://prem2.radiotunes.com:80/jpop
+            - label: K-pop
+              value: http://prem2.radiotunes.com:80/kpop
             - label: Latin Pop Hits
               value: http://prem2.radiotunes.com:80/latinpophits
             - label: Lounge
@@ -861,9 +863,11 @@ stream_zenradio:
               value: http://prem2.zenradio.com:80/zrlovenrelaxation_aac
             - label: Meditation
               value: http://prem2.zenradio.com:80/zrmeditation_aac
+            - label: Meditation Guitar
+              value: http://prem2.zenradio.com:80/zrmeditationguitar_aac
             - label: Native American Flute
               value: http://prem2.zenradio.com:80/zrnativeamericanflute_aac
-            - label: Nature
+            - label: Nature Relaxation
               value: http://prem2.zenradio.com:80/zrnature_aac
             - label: New Age
               value: http://prem2.zenradio.com:80/zrnewage_aac
@@ -873,8 +877,6 @@ stream_zenradio:
               value: http://prem2.zenradio.com:80/zrpeacefulhealing_aac
             - label: Perfect Sunsets
               value: http://prem2.zenradio.com:80/zrperfectsunsets_aac
-            - label: Pregnancy Relaxation
-              value: http://prem2.zenradio.com:80/zrpregnancyrelaxation_aac
             - label: Reiki
               value: http://prem2.zenradio.com:80/zrreiki_aac
             - label: Relaxation
